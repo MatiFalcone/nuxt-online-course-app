@@ -10,7 +10,9 @@ const lessonSelect = Prisma.validator<Prisma.LessonDefaultArgs>()({
   },
 });
 
-export type LessonOutline = Prisma.LessonGetPayload<typeof lessonSelect>;
+export type LessonOutline = Prisma.LessonGetPayload<typeof lessonSelect> & {
+  path: string;
+};
 
 const chapterSelect = Prisma.validator<Prisma.ChapterDefaultArgs>()({
   select: {
