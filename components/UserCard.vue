@@ -15,11 +15,12 @@
 
 <script setup lang="ts">
 const user = useSupabaseUser();
-const { auth } = useSupabaseClient();
+//const { auth } = useSupabaseClient();
 const name = computed(() => user.value?.user_metadata.full_name);
 const profile = computed(() => user.value?.user_metadata.avatar_url);
 
 const logout = async () => {
+  const { auth } = useSupabaseClient();
   const { error } = await auth.signOut();
 
   if (error) {
